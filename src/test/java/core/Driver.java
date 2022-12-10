@@ -37,7 +37,6 @@ public class Driver {
                 break;
         }
         wait = new WebDriverWait(driver, 10);
-        driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 
@@ -67,7 +66,9 @@ public class Driver {
     public static void visibilityOf(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
-
+    public static void elementClickable(WebElement element){
+        wait.until(ExpectedConditions.elementToBeClickable(element));
+    }
     /*
     Acessores do inicio do escopo ( ALT+INSERT setter)
      */
@@ -94,13 +95,12 @@ public class Driver {
     Instanciando o Chrome com headless ( 2ª plano)
      */
     private void startChrome() {
-        WebDriverManager.chromedriver().setup();
+//        WebDriverManager.chromedriver().setup();
+        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
-        boolean headless = Boolean.parseBoolean(System.getProperty("headless"));
-        chromeOptions.setHeadless(headless);
-
+        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--start-maximized");
         driver = new ChromeDriver(chromeOptions);
-        driver.manage().window().setSize(new Dimension(1280, 720));
     }
 
 
