@@ -96,7 +96,12 @@ public class Driver {
      */
     private void startChrome() {
 //        WebDriverManager.chromedriver().setup();
-        System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+        if (System.getProperty("os.name").equals("Windows 10")){
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+        } else {
+            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+        }
+
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--no-sandbox");
