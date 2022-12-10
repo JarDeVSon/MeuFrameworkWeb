@@ -1,8 +1,11 @@
-name: Testes Regressivos
+name: Testes Agendados
+
 
 on:
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '*/5 * * * *'
 
 jobs:
   RunTest:
@@ -28,7 +31,7 @@ jobs:
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-          
+
 
       - name: Execucao dos Testes Regressivos
         run: mvn test -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting
