@@ -30,17 +30,6 @@ public class RegisterSteps {
 
     }
 
-//    @When("Click on My Account Menu")
-//    public void click_on_my_account_menu() throws Exception {
-//        try {
-//            registerPage.clickMyAccount();
-//            Driver.printScreenshot("Click on My Account Menu");
-//        } catch (Exception e) {
-//            throw new Exception("Not Click on My Account Menu");
-//        }
-//
-//    }
-
     @And("Enter registered Email Address in Email-Address textbox")
     public void enterRegisteredEmailAddressInEmailAddressTextbox() throws Exception {
         try {

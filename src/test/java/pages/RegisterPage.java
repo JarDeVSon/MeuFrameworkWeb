@@ -12,12 +12,6 @@ public class RegisterPage {
         PageFactory.initElements(Driver.getDriver(), registerMaps);
     }
 
-//    public void clickMyAccount() {
-//        Driver.visibilityOf(registerMaps.linkMyAccount);
-//        Driver.elementClickable(registerMaps.linkMyAccount);
-//        registerMaps.linkMyAccount.click();
-//    }
-
     public void setEmailAdress(String email) {
         if (email != null) {
             registerMaps.inputEmail.sendKeys(email);

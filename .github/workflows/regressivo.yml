@@ -33,4 +33,11 @@ jobs:
           
 
       - name: Executar Testes Regressivos
-        run: mvn test -Dcucumber.filter.tags="@regressivo"
+        run: mvn test -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting
+
+      - name: Arquivar Relatorio
+        if: always()
+        uses: actions/upload-arctifact@v3
+        with:
+          name: report-execution
+          path: "**/report/"
