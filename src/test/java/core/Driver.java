@@ -36,8 +36,8 @@ public class Driver {
                 startFirefox();
                 break;
         }
-        wait = new WebDriverWait(driver, 10);
-        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        wait = new WebDriverWait(driver, 30);
+        driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
     }
 
     /*
@@ -96,12 +96,6 @@ public class Driver {
      */
     private void startChrome() {
         WebDriverManager.chromedriver().setup();
-//        if (System.getProperty("os.name").equals("Windows 10")){
-//            System.setProperty("webdriver.chrome.driver", "C:\\Users\\pesso\\MeuFrameworkWeb\\chromedriver.exe");
-//        } else {
-//            System.setProperty("webdriver.chrome.driver", "C:\\Users\\pesso\\MeuFrameworkWeb\\chromedriver");
-//        }
-
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-dev-shm-usage");
         chromeOptions.addArguments("--no-sandbox");
