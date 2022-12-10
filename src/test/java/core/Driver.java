@@ -97,9 +97,9 @@ public class Driver {
     private void startChrome() {
 //        WebDriverManager.chromedriver().setup();
         if (System.getProperty("os.name").equals("Windows 10")){
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
+            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         } else {
-            System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver");
+            System.setProperty("webdriver.chrome.driver", "chromedriver");
         }
 
         ChromeOptions chromeOptions = new ChromeOptions();
