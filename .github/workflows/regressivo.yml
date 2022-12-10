@@ -52,8 +52,8 @@ jobs:
           SLACK_CHANNEL: regressivos
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://www.clipartkey.com/mpngs/m/283-2836740_success-icon-transparent-green-success-png-icon.png
-          SLACK_MESSAGE: 'Teste REGRESSIVO executado com sucesso! :white_check_mark:'
-          SLACK_TITLE: 'Teste REGRESSIVO executado com sucesso! :white_check_mark:'
+          SLACK_MESSAGE: 'Teste do PR executado com sucesso! :white_check_mark:'
+          SLACK_TITLE: 'Teste do PR executado com sucesso! :white_check_mark:'
           SLACK_USERNAME: SUCESSO
 
       - name: Enviar Notificacao Slack - Falha
@@ -64,6 +64,6 @@ jobs:
           SLACK_CHANNEL: regressivos
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://flyclipart.com/thumb2/fail-failed-lock-icon-with-png-and-vector-format-for-free-745392.png
-          SLACK_MESSAGE: 'Erro ao executar teste REGRESSIVO! :fire:'
-          SLACK_TITLE: 'Erro ao executar teste REGRESSIVO! :fire:'
+          SLACK_MESSAGE: 'Erro ao executar testes do PR! :fire:'
+          SLACK_TITLE: 'Erro ao executar testes do PR! :fire:'
           SLACK_USERNAME: ERRO
