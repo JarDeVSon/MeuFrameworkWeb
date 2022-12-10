@@ -1,4 +1,4 @@
-name: Testes Agendados - a cada 2 horas de seg a sexta
+name: Testes Agendados - a cada 2 horas seg-sexta
 
 
 on:
