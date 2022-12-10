@@ -5,8 +5,8 @@
 Feature: Register
 
   Background: MY ACCOUNT - REGISTRATION
-    Given Open the browser and Enter the URL "http://practice.automationtesting.in/"
-    When Click on My Account Menu
+    Given Open the browser and Enter the URL "https://practice.automationtesting.in/my-account/"
+#    When Click on My Account Menu
 
   @ct0001
   Scenario: Caminho Feliz - Registration-Sign-in
