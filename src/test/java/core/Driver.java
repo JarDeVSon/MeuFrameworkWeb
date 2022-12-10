@@ -98,8 +98,13 @@ public class Driver {
 //        WebDriverManager.chromedriver().setup();
         System.setProperty("webdriver.chrome.driver", "src/test/resources/drivers/chromedriver.exe");
         ChromeOptions chromeOptions = new ChromeOptions();
+        chromeOptions.addArguments("--disable-dev-shm-usage");
+        chromeOptions.addArguments("--no-sandbox");
+        chromeOptions.addArguments("--ignore-certificate-errors");
+        chromeOptions.addArguments("--disable-popup-blocking");
         chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--start-maximized");
+        chromeOptions.addArguments("--incognito");
         driver = new ChromeDriver(chromeOptions);
     }
 
