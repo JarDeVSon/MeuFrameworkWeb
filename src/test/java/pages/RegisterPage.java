@@ -13,6 +13,7 @@ public class RegisterPage {
     }
 
     public void clickMyAccount() {
+        Driver.visibilityOf(registerMaps.linkMyAccount);
         Driver.elementClickable(registerMaps.linkMyAccount);
         registerMaps.linkMyAccount.click();
     }
