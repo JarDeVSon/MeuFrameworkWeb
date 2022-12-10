@@ -37,7 +37,7 @@ jobs:
 
       - name: Arquivar Relatorio
         if: always()
-        uses: actions/upload-arctifact@v3
+        uses: actions/upload-artifact@v3
         with:
           name: report-execution
           path: "**/report/"
