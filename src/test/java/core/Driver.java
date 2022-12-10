@@ -95,12 +95,12 @@ public class Driver {
     Instanciando o Chrome com headless ( 2ª plano)
      */
     private void startChrome() {
-//        WebDriverManager.chromedriver().setup();
-        if (System.getProperty("os.name").equals("Windows 10")){
-            System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
-        } else {
-            System.setProperty("webdriver.chrome.driver", "chromedriver");
-        }
+        WebDriverManager.chromedriver().setup();
+//        if (System.getProperty("os.name").equals("Windows 10")){
+//            System.setProperty("webdriver.chrome.driver", "C:\\Users\\pesso\\MeuFrameworkWeb\\chromedriver.exe");
+//        } else {
+//            System.setProperty("webdriver.chrome.driver", "C:\\Users\\pesso\\MeuFrameworkWeb\\chromedriver");
+//        }
 
         ChromeOptions chromeOptions = new ChromeOptions();
         chromeOptions.addArguments("--disable-dev-shm-usage");
