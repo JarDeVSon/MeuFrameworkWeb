@@ -1,8 +1,11 @@
-name: Testes Regressivos
+name: Testes Agendados - a cada 2 horas seg-sexta
+
 
 on:
   pull_request:
     branches: [ main ]
+  schedule:
+    - cron: '0 */2 * * 1-5'
 
 jobs:
   RunTest:
@@ -28,7 +31,7 @@ jobs:
           export DISPLAY=:99
           chromedriver --url-base=/wd/hub &
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
-          
+
 
       - name: Execucao dos Testes Regressivos
         run: mvn test -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting
@@ -48,13 +51,13 @@ jobs:
         uses: rtCamp/action-slack-notify@v2
         if: ${{ success() }}
         env:
-          SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
-          SLACK_CHANNEL: regressivos
-          SLACK_COLOR: ${{ job.status }}
-          SLACK_ICON: https://www.clipartkey.com/mpngs/m/283-2836740_success-icon-transparent-green-success-png-icon.png
-          SLACK_MESSAGE: 'Teste REGRESSIVO executado com sucesso! :white_check_mark:'
-          SLACK_TITLE: 'Teste REGRESSIVO executado com sucesso! :white_check_mark:'
-          SLACK_USERNAME: SUCESSO
+            SLACK_WEBHOOK: ${{ secrets.SLACK_WEBHOOK }}
+            SLACK_CHANNEL: regressivos
+            SLACK_COLOR: ${{ job.status }}
+            SLACK_ICON: https://www.clipartkey.com/mpngs/m/283-2836740_success-icon-transparent-green-success-png-icon.png
+            SLACK_MESSAGE: 'Teste AGENDADO executado com sucesso! :white_check_mark:'
+            SLACK_TITLE: 'Teste AGENDADO executado com sucesso! :white_check_mark:'
+            SLACK_USERNAME: SUCESSO
 
       - name: Enviar Notificacao Slack - Falha
         uses: rtCamp/action-slack-notify@v2
@@ -64,6 +67,6 @@ jobs:
           SLACK_CHANNEL: regressivos
           SLACK_COLOR: ${{ job.status }}
           SLACK_ICON: https://flyclipart.com/thumb2/fail-failed-lock-icon-with-png-and-vector-format-for-free-745392.png
-          SLACK_MESSAGE: 'Erro ao executar teste REGRESSIVO! :fire:'
-          SLACK_TITLE: 'Erro ao executar teste REGRESSIVO! :fire:'
+          SLACK_MESSAGE: 'Erro ao executar teste AGENDADO! :fire:'
+          SLACK_TITLE: 'Erro ao executar teste AGENDADO! :fire:'
           SLACK_USERNAME: ERRO
