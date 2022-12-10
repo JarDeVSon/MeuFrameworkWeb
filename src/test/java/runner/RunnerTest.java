@@ -12,7 +12,7 @@ import java.io.IOException;
         features = "src/test/resources/features",
         glue = "steps",
         plugin = {"pretty", "json:target/report/cucumber.json"},
-        tags = "@register"
+        tags = "@regressivo"
 
 )
 public class RunnerTest {
