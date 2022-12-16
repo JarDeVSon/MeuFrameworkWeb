@@ -26,7 +26,17 @@ public class Hooks {
     @After
     public void closeBrowser(Scenario scenario) throws IOException {
 
-        System.out.println(" | Scenario: " + scenario.getName() + " | Status : " + scenario.getStatus());
+        System.out.println("==========================================================");
+        System.out.println("==========================================================");
+        System.out.println("==========================================================");
+        System.out.println("==========================================================");
+        System.out.println(" | Scenario: " + scenario.getName());
+        System.out.println(" | Status: " + scenario.getStatus());
+        System.out.println(" | Tag: " + scenario.getSourceTagNames());
+        System.out.println("===========================================================");
+        System.out.println("===========================================================");
+        System.out.println("===========================================================");
+        System.out.println("===========================================================");
         if (scenario.isFailed()) {
             Driver.printScreenshot("Step failed!");
         }
