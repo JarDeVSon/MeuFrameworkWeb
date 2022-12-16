@@ -5,8 +5,9 @@ import core.Driver;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
 import io.cucumber.java.Scenario;
-
 import java.io.IOException;
+
+
 
 public class Hooks {
     /*
@@ -24,10 +25,13 @@ public class Hooks {
      */
     @After
     public void closeBrowser(Scenario scenario) throws IOException {
+
         System.out.println(" | Scenario: " + scenario.getName() + " | Status : " + scenario.getStatus());
         if (scenario.isFailed()) {
             Driver.printScreenshot("Step failed!");
         }
+
         Driver.getDriver().quit();
+
     }
 }
