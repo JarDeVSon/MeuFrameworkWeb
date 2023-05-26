@@ -120,7 +120,7 @@ public class Driver {
         chromeOptions.addArguments("--no-sandbox");
         chromeOptions.addArguments("--ignore-certificate-errors");
         chromeOptions.addArguments("--disable-popup-blocking");
-//        chromeOptions.addArguments("--headless");
+        chromeOptions.addArguments("--headless");
         chromeOptions.addArguments("--start-maximized");
         chromeOptions.addArguments("--incognito");
         driver = new ChromeDriver(chromeOptions);
