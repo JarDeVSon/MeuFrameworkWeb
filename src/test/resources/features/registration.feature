@@ -24,11 +24,11 @@ Feature: Register
     Then Registration must fail with a warning message
 
     Examples:
-      | CT-                            | email            | password |
-      | CT-0001 - invalid email        | 12pnopnro@ioasas | 124L$2m  |
-      | CT-0002 - empty email          |                  | 124L$2m  |
-      | CT-0003 - empty password       | 1234@email.com   |          |
-      | CT-0004 - empty email password |                  |          |
+      | CT-                            | email          | password |
+      | CT-0001 - invalid email        | asasxxx@ioasas | 124L$2m  |
+      | CT-0002 - empty email          |                | 124L$2m  |
+      | CT-0003 - empty password       | 1234@email.com |          |
+      | CT-0004 - empty email password |                |          |
 
 
 

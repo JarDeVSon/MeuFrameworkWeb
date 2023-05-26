@@ -53,7 +53,7 @@ public class Driver {
         if (violations.length()==0){
             System.out.println("No errors");
         } else {
-            AXE.writeResults("AllyTestAutomationPraticeSite", responseJson);
+            AXE.writeResults("Acessibility Violations Report", responseJson);
             System.out.println(AXE.report(violations));
         }
 
@@ -85,7 +85,7 @@ public class Driver {
     public static void visibilityOf(WebElement element) {
         wait.until(ExpectedConditions.visibilityOf(element));
     }
-    public static void elementClickable(WebElement element){
+    public static void elementToBeClickable(WebElement element){
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
     /*
