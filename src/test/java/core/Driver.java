@@ -47,6 +47,7 @@ public class Driver {
         }
         wait = new WebDriverWait(driver, 10);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        driver.manage().timeouts().pageLoadTimeout(10,TimeUnit.SECONDS);
 
         JSONObject responseJson = new AXE.Builder(Driver.getDriver(),Driver.getScriptUrl()).analyze();
         JSONArray violations = responseJson.getJSONArray("violations");

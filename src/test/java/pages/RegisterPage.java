@@ -1,36 +1,38 @@
 package pages;
 
 import core.Driver;
-import maps.RegisterMaps;
+import maps.RegisterMap;
 import org.openqa.selenium.support.PageFactory;
 
 public class RegisterPage {
-    RegisterMaps registerMaps;
+    RegisterMap registerMap;
 
     public RegisterPage() {
-        registerMaps = new RegisterMaps();
-        PageFactory.initElements(Driver.getDriver(), registerMaps);
+        registerMap = new RegisterMap();
+        PageFactory.initElements(Driver.getDriver(), registerMap);
     }
 
     public void setEmailAdress(String email) {
+        Driver.visibilityOf(registerMap.inputEmail);
         if (email != null) {
-            registerMaps.inputEmail.sendKeys(email);
+            registerMap.inputEmail.sendKeys(email);
         }
     }
 
     public void setPassword(String password) {
+        Driver.visibilityOf(registerMap.inputPassword);
         if (password != null) {
-            registerMaps.inputPassword.sendKeys(password);
+            registerMap.inputPassword.sendKeys(password);
         }
     }
 
     public void clickRegister() {
-        Driver.visibilityOf(registerMaps.submitRegister);
-        registerMaps.submitRegister.click();
+        Driver.visibilityOf(registerMap.submitRegister);
+        registerMap.submitRegister.click();
     }
 
     public String getErrorMessage() {
-        Driver.visibilityOf(registerMaps.errorMessage);
-        return registerMaps.errorMessage.getText();
+        Driver.visibilityOf(registerMap.errorMessage);
+        return registerMap.errorMessage.getText();
     }
 }
