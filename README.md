@@ -17,7 +17,7 @@ To clone and run this project, you will need:
   
 ## Installation
 
-Install the Following Libraries using the command Line:
+Install the Libraries using the Command Line:
 
 - `mvn install`
   
