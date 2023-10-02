@@ -1,6 +1,6 @@
 # Web Automation Selenium WebDriver, Cucumber, and JUnit with Java - Framework
 
-Sample project to demonstrate Web Automation tests written with [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/getting_started/install_library/) in [Java](https://www.oracle.com/java/technologies/downloads/#java11)) running on GitHub Actions.
+Sample project to demonstrate Web Automation tests written with [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/getting_started/install_library/) in [Java](https://www.oracle.com/java/technologies/downloads/#java11) running on GitHub Actions.
 
 ## Pre-requirements
 
