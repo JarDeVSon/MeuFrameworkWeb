@@ -3,7 +3,7 @@ package maps;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class RegisterMaps {
+public class RegisterMap {
 
     @FindBy(css = "#reg_email") public WebElement inputEmail;
     @FindBy(css = "#reg_password") public WebElement inputPassword;

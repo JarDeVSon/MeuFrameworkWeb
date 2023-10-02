@@ -1,19 +1,19 @@
 package pages;
 
 import core.Driver;
-import maps.HomeMaps;
+import maps.HomeMap;
 import org.openqa.selenium.support.PageFactory;
 
 public class HomePage {
-    HomeMaps homeMaps;
+    HomeMap homeMap;
 
     public HomePage() {
-        homeMaps = new HomeMaps();
-        PageFactory.initElements(Driver.getDriver(), homeMaps);
+        homeMap = new HomeMap();
+        PageFactory.initElements(Driver.getDriver(), homeMap);
     }
 
     public String getTitleUser() {
-        Driver.visibilityOf(homeMaps.body);
-        return homeMaps.body.getText();
+        Driver.visibilityOf(homeMap.body);
+        return homeMap.body.getText();
     }
 }

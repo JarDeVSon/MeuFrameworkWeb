@@ -12,7 +12,8 @@ import java.io.IOException;
         features = "src/test/resources/features",
         glue = "steps",
         plugin = {"pretty", "json:target/report/cucumber.json"},
-        tags = "@regressivo"
+        tags = "@regressivo",
+        snippets = CucumberOptions.SnippetType.CAMELCASE
 
 )
 public class RunnerTest {
