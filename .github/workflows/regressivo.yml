@@ -31,21 +31,21 @@ jobs:
           sudo Xvfb -ac :99 -screen 0 1280x1024x24 > /dev/null 2>&1 & # optional
           
 
-      - name: Execucao dos Testes Regressivos
+      - name: Execucao dos Testes
         run: mvn test -Dcucumber.filter.tags="@regressivo"
 
-      - name: Relatorio de Execucao
+      - name: Relatorio dos Testes
         if: always()
         run: mvn cluecumber-report:reporting
 
-      - name: Gerar Relatorio
+      - name: Upload Relatorio dos Testes
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: report-execution
           path: "**/report/"
 
-      - name: Implantar no Github Pages
+      - name: Implantar Resultados no Github Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
