@@ -13,5 +13,5 @@ Feature: Register 2
       | country2 | <country2> |
 
     Examples:
-      | CT-                         | country1       | country2 |
-      | CT-0001 - country Australia | Select Country | Japan    |
+      | CT-                     | country1       | country2 |
+      | CT-0001 - country Japan | Select Country | Japan    |
