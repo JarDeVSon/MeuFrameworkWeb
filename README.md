@@ -17,21 +17,15 @@ To clone and run this project, you will need:
 
 ## Project Structure: Page Object Model and Single Responsibility Principle Pattern:
 
-Check out the following files:
-    
-In my case, check out the following files:
-  - .\tests\api_test.spec.ts - API test
-  - .\tests\web_test.spec.ts - Web test using page objects model pattern (POM), check it out below:
 
-
-| Package  | Responsibility                                                          |
-|----------|----------------------------------------------------------------------------|
-| core     | responsible for managing the Webdriver config                              |
-| maps     | responsible for identifying web elements                                   |
-| pages    | responsible for page actions (navigation, (fills, sendKeys), clicks, etc.) |
-| steps    | responsible for snippets steps generated from feature file                 |
-| runner   | responsible for executing the test suite                                   |
-| features | responsible for Scenarios written in BDD/Gherkin                           |
+| Package  | Responsibility                                                                  |
+|----------|---------------------------------------------------------------------------------|
+| core     | responsible for managing the Webdriver config                                   |
+| maps     | responsible for identifying web elements                                        |
+| pages    | responsible for page actions (navigation, sendKeys, getText, clicks, selects.)  |
+| steps    | responsible for snippets steps generated from feature file                      |
+| runner   | responsible for executing the test suite                                        |
+| features | responsible for Scenarios written in BDD/Gherkin                                |
 
   
 ## Installation
