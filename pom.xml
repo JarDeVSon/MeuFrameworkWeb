@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>MeuFrameworkWeb</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
+
+    <dependencies>
+
+        <dependency>
+            <groupId>com.deque</groupId>
+            <artifactId>axe-selenium</artifactId>
+            <version>3.0</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.github.javafaker/javafaker -->
+        <dependency>
+            <groupId>com.github.javafaker</groupId>
+            <artifactId>javafaker</artifactId>
+            <version>1.0.2</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>3.141.59</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>5.5.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-java -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>7.2.3</version>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/io.cucumber/cucumber-junit -->
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit</artifactId>
+            <version>7.2.3</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- Add these instead: -->
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-suite</artifactId>
+            <version>1.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.9.2</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-junit-platform-engine</artifactId>
+            <version>7.11.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- https://mvnrepository.com/artifact/commons-io/commons-io -->
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.11.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.rajatthareja/reportbuilder -->
+        <dependency>
+            <groupId>com.rajatthareja</groupId>
+            <artifactId>reportbuilder</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/com.aoapps/ao-encoding -->
+        <dependency>
+            <groupId>com.aoapps</groupId>
+            <artifactId>ao-encoding</artifactId>
+            <version>6.0.1</version>
+        </dependency>
+
+    </dependencies>
+    <build>
+
+        <plugins>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M7</version>
+                <configuration>
+                    <properties>
+                        <configurationParameters>
+                            junit.jupiter.execution.parallel.enabled = true
+                            junit.jupiter.execution.parallel.mode.default = concurrent
+                            junit.jupiter.execution.parallel.config.strategy = fixed
+                            junit.jupiter.execution.parallel.config.fixed.parallelism = 4
+                        </configurationParameters>
+                    </properties>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.trivago.rta</groupId>
+                <artifactId>cluecumber-report-plugin</artifactId>
+                <version>2.7.1</version>
+                <executions>
+                    <execution>
+                        <id>report</id>
+                        <phase>post-integration-test</phase>
+                        <goals>
+                            <goal>reporting</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <sourceJsonReportDirectory>${project.build.directory}/report</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/report</generatedHtmlReportDirectory>
+                    <!-- Embed screenshots into the report -->
+                    <startPage>overview</startPage>
+                    <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
+                    <embedScreenshots>true</embedScreenshots> <!-- REQUIRED -->
+                    <screenshotDirectory>target/report/attachments</screenshotDirectory> <!-- Must match your hook -->
+                    <!-- Merge all JSON reports -->
+                    <sourceJsonReportFiles>
+                        <param>cucumber.json</param>
+                    </sourceJsonReportFiles>
+                </configuration>
+            </plugin>
+        </plugins>
+        
+    </build>
+</project>

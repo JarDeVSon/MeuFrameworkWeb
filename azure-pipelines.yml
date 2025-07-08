@@ -1,0 +1,76 @@
+# azure-pipelines.yml
+trigger:
+  branches:
+    include:
+      - main
+
+pr:
+  branches:
+    include:
+      - main
+
+pool:
+  vmImage: 'ubuntu-latest'
+
+jobs:
+- job: Run_Tests_Web_Automated
+  steps:
+  - checkout: self
+
+  - task: JavaToolInstaller@0
+    inputs:
+      versionSpec: '11'
+      jdkArchitectureOption: 'x64'
+      jdkSourceOption: 'PreInstalled'  # Define a origem do JDK como pré-instalada na imagem
+
+  - script: |
+      mkdir -p $(Pipeline.Workspace)/.m2/repository
+    displayName: 'Criar diretório do cache Maven'
+
+  - task: Cache@2
+    inputs:
+      key: 'maven | "$(Agent.OS)" | pom.xml'
+      restoreKeys: |
+        maven | "$(Agent.OS)"
+      path: $(Pipeline.Workspace)/.m2/repository  # Caminho padrão do repositório Maven no Azure DevOps
+    displayName: 'Cache Maven Dependencies'
+    condition: always()
+
+  - script: |
+      sudo apt-get update
+      wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
+      sudo apt install ./google-chrome*.deb
+    displayName: 'Instalar Chrome'
+
+  - script: |
+      sudo apt-get install -y xvfb
+      wget https://chromedriver.storage.googleapis.com/$(curl -sS chromedriver.storage.googleapis.com/LATEST_RELEASE)/chromedriver_linux64.zip
+      sudo unzip chromedriver_linux64.zip -d /usr/local/bin/
+      sudo chmod +x /usr/local/bin/chromedriver
+      export DISPLAY=:99
+      Xvfb :99 -ac -screen 0 1280x1024x16 &
+    displayName: 'Setup Chromedriver'
+
+  - script: |
+      mvn test -Dcucumber.filter.tags="@regressivo"
+    displayName: 'Execucao dos Testes'
+
+  - script: |
+      mvn cluecumber-report:reporting
+    displayName: 'Relatorio dos Testes'
+    condition: always()
+
+  - task: PublishPipelineArtifact@1
+    inputs:
+      targetPath: '/home/vsts/work/1/s/target/report'
+      artifactName: report-execution
+    displayName: 'Upload Relatorio dos Testes'
+    condition: always()
+
+  - task: PublishTestResults@2
+    inputs:
+      testResultsFiles: '**/target/surefire-reports/*.xml'  # Caminho dos relatórios de teste
+      testRunTitle: 'Test Results - Regressivo'
+      mergeTestResults: true
+    displayName: 'Publicar Resultados dos Testes'
+    condition: always()
