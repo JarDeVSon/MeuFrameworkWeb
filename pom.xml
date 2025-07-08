@@ -133,7 +133,7 @@
                     <!-- Embed screenshots into the report -->
                     <startPage>overview</startPage>
                     <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
-                    <embedScreenshots>true</embedScreenshots> <!--  REQUIRED -->
+                    <embedScreenshots>true</embedScreenshots> <!-- REQUIRED -->
                     <screenshotDirectory>target/report/attachments</screenshotDirectory> <!-- Must match your hook -->
                     <!-- Merge all JSON reports -->
                     <sourceJsonReportFiles>
