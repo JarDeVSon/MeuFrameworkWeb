@@ -59,7 +59,19 @@
         <dependency>
             <groupId>org.junit.platform</groupId>
             <artifactId>junit-platform-suite</artifactId>
-            <version>1.9.2</version>
+            <version>1.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>5.10.0</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-api</artifactId>
+            <version>5.10.0</version>
             <scope>test</scope>
         </dependency>
         <dependency>
@@ -102,8 +114,13 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
-                <version>3.0.0-M7</version>
+                <version>3.0.0-M5</version>
                 <configuration>
+                    <includes>
+                        <include>**/*Test.java</include>
+                        <include>**/*Tests.java</include>
+                        <include>**/*RunnerTestJUnitFive.java</include>
+                    </includes>
                     <properties>
                         <configurationParameters>
                             junit.jupiter.execution.parallel.enabled = true
@@ -128,12 +145,12 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <sourceJsonReportDirectory>${project.build.directory}/report</sourceJsonReportDirectory>
-                    <generatedHtmlReportDirectory>${project.build.directory}/report</generatedHtmlReportDirectory>
+                    <sourceJsonReportDirectory>${project.build.directory}/report/</sourceJsonReportDirectory>
+                    <generatedHtmlReportDirectory>${project.build.directory}/report/</generatedHtmlReportDirectory>
                     <!-- Embed screenshots into the report -->
-                    <startPage>overview</startPage>
+                    <startPage>ALL_SCENARIOS</startPage>
                     <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
-                    <embedScreenshots>true</embedScreenshots> <!--  REQUIRED -->
+                    <embedScreenshots>true</embedScreenshots> <!-- REQUIRED -->
                     <screenshotDirectory>target/report/attachments</screenshotDirectory> <!-- Must match your hook -->
                     <!-- Merge all JSON reports -->
                     <sourceJsonReportFiles>
@@ -142,6 +159,6 @@
                 </configuration>
             </plugin>
         </plugins>
-        
+
     </build>
 </project>

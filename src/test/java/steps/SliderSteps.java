@@ -2,7 +2,7 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import pages.SliderPage;
 
 public class SliderSteps {
@@ -16,6 +16,6 @@ public class SliderSteps {
 
     @Then("should be displayed {int} porcents")
     public void shouldBeDisplayedPorcents(int value) {
-        Assert.assertEquals(value, 50);
+        Assertions.assertEquals(value, 50);
     }
 }

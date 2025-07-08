@@ -2,7 +2,7 @@ package steps;
 
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import pages.FramePage;
 
 import java.util.Map;
@@ -18,7 +18,7 @@ public class FrameSteps {
 
     @Then("should be displayed {string}")
     public void shouldBeDisplayed(String msgExpected) {
-        Assert.assertEquals(msgExpected, "preenchido com sucesso");
+        Assertions.assertEquals(msgExpected, "preenchido com sucesso");
     }
 
 

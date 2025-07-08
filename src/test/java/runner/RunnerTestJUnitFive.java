@@ -1,6 +1,6 @@
 package runner;
 
-import org.junit.AfterClass;
+
 import org.junit.jupiter.api.AfterAll;
 import org.junit.platform.suite.api.ConfigurationParameter;
 import org.junit.platform.suite.api.IncludeEngines;
@@ -21,7 +21,7 @@ import static io.cucumber.junit.platform.engine.Constants.*;
 public class RunnerTestJUnitFive {
 
     @AfterAll
-    public static void reports() throws IOException {
+    public static void report() throws IOException {
         if (System.getProperty("os.name").equals("Windows 10")) {
             Runtime.getRuntime().exec("cmd.exe /c mvn cluecumber-report:reporting");
         } else {
