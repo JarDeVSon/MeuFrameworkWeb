@@ -6,7 +6,7 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import org.junit.Assert;
+import org.junit.jupiter.api.Assertions;
 import pages.HomePage;
 import pages.RegisterPage;
 
@@ -67,7 +67,7 @@ public class RegisterSteps {
 
         try {
             String home = homePage.getTitleUser();
-            Assert.assertEquals(homePage.getTitleUser(), home);
+            Assertions.assertEquals(homePage.getTitleUser(), home);
             Driver.printScreenshot("User will be registered successfully and will be navigated to the Home page");
         } catch (Exception e) {
             throw new Exception("Not User will be registered successfully and will be navigated to the Home page");
@@ -112,7 +112,7 @@ public class RegisterSteps {
     public void registrationMustFailWithAWarningMessage() throws Exception {
         try {
             String error = registerPage.getErrorMessage();
-            Assert.assertEquals(registerPage.getErrorMessage(), error);
+            Assertions.assertEquals(registerPage.getErrorMessage(), error);
             Driver.printScreenshot("Registration must fail with a warning message");
         } catch (Exception e) {
             throw new Exception("Error in Registration must fail with a warning message");
