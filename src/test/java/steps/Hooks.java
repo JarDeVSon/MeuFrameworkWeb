@@ -42,7 +42,7 @@ public class Hooks {
         System.out.println("===========================================================");
         System.out.println("===========================================================");
         System.out.println("===========================================================");
-        if (!scenario.isFailed()) {
+        if (scenario.isFailed()) {
             Driver.printScreenshot("Step failed!");
             Driver.screenshotEmbed(scenario);
         }
