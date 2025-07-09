@@ -49,7 +49,7 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: "**/report/"
+          publish_dir: "**/report/index.html"
 
       - name: Enviar Notificacao Slack - Sucesso
         uses: rtCamp/action-slack-notify@v2
