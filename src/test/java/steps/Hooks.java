@@ -42,30 +42,14 @@ public class Hooks {
         System.out.println("===========================================================");
         System.out.println("===========================================================");
         System.out.println("===========================================================");
-        if (scenario.isFailed()) {
+        if (!scenario.isFailed()) {
             Driver.printScreenshot("Step failed!");
-            // Save screenshot to file so Cluecumber can embed it
-            // 1. Take the screenshot
-            byte[] screenshotBytes =
-                    ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
-
-            // 2. Build a safe file name and path
-            String safeName = scenario.getName().replaceAll("[^A-Za-z0-9._-]", "_") + ".png";
-            Path screenshotPath = Paths.get("report", "attachments", safeName);
-
-            // 3. Write it to disk for Cluecumber
-            try {
-                Files.createDirectories(screenshotPath.getParent());   // create folders if missing
-                Files.write(screenshotPath, screenshotBytes);          // save the PNG
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-
-            // 4. (Optional) attach it to the Cucumber JSON
-            scenario.attach(screenshotBytes, "image/png", safeName);
+            Driver.screenshotEmbed(scenario);
         }
 
         Driver.quitDriver();
 
     }
+
+
 }

@@ -1,6 +1,7 @@
 package core;
 
 import com.deque.axe.AXE;
+import io.cucumber.java.Scenario;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.apache.commons.io.FileUtils;
 import org.json.JSONArray;
@@ -16,6 +17,9 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.concurrent.TimeUnit;
 
 public class Driver {
@@ -78,6 +82,25 @@ public class Driver {
         File file = ((TakesScreenshot) getDriver()).getScreenshotAs(OutputType.FILE);
         String path = directory.get().getPath() + "/" + currentNum + " - " + steps + ".png";
         FileUtils.copyFile(file, new File(path));
+    }
+    public static void screenshotEmbed(Scenario scenario) {
+        byte[] screenshotBytes =
+                ((TakesScreenshot) Driver.getDriver()).getScreenshotAs(OutputType.BYTES);
+
+        // 2. Build a safe file name and path
+        String safeName = scenario.getName().replaceAll("[^A-Za-z0-9._-]", "_") + ".png";
+        Path screenshotPath = Paths.get("report", "attachments", safeName);
+
+        // 3. Write it to disk for Cluecumber
+        try {
+            Files.createDirectories(screenshotPath.getParent());   // create folders if missing
+            Files.write(screenshotPath, screenshotBytes);          // save the PNG
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        // 4. (Optional) attach it to the Cucumber JSON
+        scenario.attach(screenshotBytes, "image/png", safeName);
     }
 
     public static void visibilityOf(WebElement element) {

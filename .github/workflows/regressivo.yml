@@ -32,7 +32,7 @@ jobs:
           
 
       - name: Execucao dos Testes
-        run: mvn test -Dcucumber.filter.tags="@regressivo"
+        run: mvn test -Denv=uat.properties -Dcucumber.filter.tags="@regressivo"
 
       - name: Relatorio dos Testes
         if: always()

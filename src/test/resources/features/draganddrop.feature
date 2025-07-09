@@ -5,7 +5,7 @@
 Feature: Drag and drop
 
   Background: Drag and Drop Page
-    Given Open the browser and Enter the URL "https://bonigarcia.dev/selenium-webdriver-java/drag-and-drop.html"
+    Given Open the browser and Enter the URL Dragdrop
 
   Scenario: Drag drop with
     When i perform the drag drop action

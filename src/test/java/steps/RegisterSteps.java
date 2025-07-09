@@ -9,7 +9,7 @@ import io.cucumber.java.en.When;
 import org.junit.jupiter.api.Assertions;
 import pages.HomePage;
 import pages.RegisterPage;
-
+import utils.PropertiesUtils;
 import java.util.Map;
 
 
@@ -17,13 +17,14 @@ public class RegisterSteps {
     RegisterPage registerPage = new RegisterPage();
     Faker faker = new Faker();
     HomePage homePage = new HomePage();
+    PropertiesUtils propertiesUtils = new PropertiesUtils();
 
 
-    @Given("Open the browser and Enter the URL {string}")
-    public void open_the_browser_and_enter_the_url(String string) throws Exception {
+    @Given("Open the browser and Enter the URL Registrarion")
+    public void open_the_browser_and_enter_the_url_registration() throws Exception {
         try {
-            Driver.getDriver().get(string);
-            Driver.printScreenshot("Open the browser and Enter the URL");
+            Driver.getDriver().get(propertiesUtils.getProperty("url_myaccount"));
+            Driver.printScreenshot("Open the browser and Enter the URL Registration");
         } catch (Exception e) {
             throw new Exception("Not open the browser");
         }

@@ -5,7 +5,7 @@
 Feature: Datepicker
 
   Background: Datepicker Page
-    Given Open the browser and Enter the URL "https://demo.automationtesting.in/Datepicker.html"
+    Given Open the browser and Enter the URL Datepicker
 
   Scenario Outline: Datepicker with <CT->
     When i choose the following date in datepicker
