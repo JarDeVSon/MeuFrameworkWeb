@@ -42,8 +42,8 @@ public class Hooks {
         System.out.println("===========================================================");
         System.out.println("===========================================================");
         System.out.println("===========================================================");
-        if (scenario.isFailed()) {
-            Driver.printScreenshot("Step failed!");
+        if (scenario.isFailed() || !scenario.isFailed()) {
+            Driver.printScreenshot(scenario.getName());
             Driver.screenshotEmbed(scenario);
         }
 
