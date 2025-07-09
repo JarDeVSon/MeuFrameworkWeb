@@ -5,7 +5,7 @@
 Feature: Slider
 
   Background: Slider Page
-    Given Open the browser and Enter the URL "https://demo.automationtesting.in/Slider.html"
+    Given Open the browser and Enter the URL Slider
 
   Scenario Outline: Slider with <CT->
     When i perform the slider action with 50 porcents

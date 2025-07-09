@@ -5,7 +5,7 @@
 Feature: Frame
 
   Background: Frame Page
-    Given Open the browser and Enter the URL "https://demo.automationtesting.in/Frames.html"
+    Given Open the browser and Enter the URL Frame
 
   Scenario Outline: Frame with <CT->
     When fill the frame field

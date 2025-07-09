@@ -5,7 +5,7 @@
 Feature: Register 2
 
   Background: Register 2 Page
-    Given Open the browser and Enter the URL "https://demo.automationtesting.in/Register.html"
+    Given Open the browser and Enter the URL Register
 
   Scenario Outline: Register with <CT->
     When I fill in the following information
