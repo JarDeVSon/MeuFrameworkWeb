@@ -36,10 +36,18 @@ Install the Libraries using the Command Line:
   
 ## Running the tests
 
-In this project, you can run tests via CLI using 'mvn' the flag '-Dcucumber.filter.tags=' with the Name Tag Runner '@regressivo'
-and generate the reports with the 'cluecumber-report:reporting'
+In this project, 
+- you can run tests via CLI handle with multiple environments(dev,hom,uat) using 'mvn' -Denv=env.properties. 
+- the flag '-Dcucumber.filter.tags=' with the Name Tag Runner '@regressivo'
+- generate the reports with the 'cluecumber-report:reporting'
 
-`mvn test -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting`
+
+`mvn test -Denv=dev.properties -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting`
+
+`mvn test -Denv=hom.properties -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting`
+
+`mvn test -Denv=uat.properties -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting`
+
 ___
 
 Made with ❤️ by [Jardeson Santos](https://github.com/JarDeVSon). [Meu Linkedin](https://www.linkedin.com/in/jardeson-santosqa).
