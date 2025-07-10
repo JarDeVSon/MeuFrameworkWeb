@@ -22,7 +22,7 @@ public class RunnerTestJUnitFive {
 
     @AfterAll
     public static void report() throws IOException {
-        if (System.getProperty("os.name").equals("Windows 10")) {
+        if (System.getProperty("os.name").equals("Windows 10") || System.getProperty("os.name").equals("Windows 11")) {
             Runtime.getRuntime().exec("cmd.exe /c mvn cluecumber-report:reporting");
         } else {
             Runtime.getRuntime().exec("sh -c mvn cluecumber-report:reporting");
