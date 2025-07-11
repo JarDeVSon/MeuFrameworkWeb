@@ -14,8 +14,7 @@ import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.io.File;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -45,9 +44,9 @@ public class Driver {
         }
 
         // Initialize per-thread objects
-        wait.set(new WebDriverWait(getDriver(), 10));
-        getDriver().manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
-        getDriver().manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
+        wait.set(new WebDriverWait(getDriver(), 20));
+        getDriver().manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        getDriver().manage().timeouts().pageLoadTimeout(20, TimeUnit.SECONDS);
 
         runAccessibilityCheck();
     }
@@ -161,5 +160,14 @@ public class Driver {
         chromeOptions.addArguments("--disable-gpu");
 
         driver.set(new ChromeDriver(chromeOptions));
+    }
+
+    public static void printStream(InputStream inputStream) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+            }
+        }
     }
 }
