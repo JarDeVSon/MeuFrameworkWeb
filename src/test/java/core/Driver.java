@@ -162,12 +162,4 @@ public class Driver {
         driver.set(new ChromeDriver(chromeOptions));
     }
 
-    public static void printStream(InputStream inputStream) throws IOException {
-        try (BufferedReader reader = new BufferedReader(new InputStreamReader(inputStream))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                System.out.println(line);
-            }
-        }
-    }
 }

@@ -150,12 +150,6 @@
                     <!-- Embed screenshots into the report -->
                     <startPage>ALL_SCENARIOS</startPage>
                     <expandBeforeAfterHooks>true</expandBeforeAfterHooks>
-                    <embedScreenshots>true</embedScreenshots> <!-- REQUIRED -->
-                    <screenshotDirectory>target/report/attachments</screenshotDirectory> <!-- Must match your hook -->
-                    <!-- Merge all JSON reports -->
-                    <sourceJsonReportFiles>
-                        <param>cucumber.json</param>
-                    </sourceJsonReportFiles>
                 </configuration>
             </plugin>
         </plugins>
