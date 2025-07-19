@@ -40,7 +40,7 @@ In this project,
 - you can run tests via CLI handle with multiple environments(dev,hom,uat) using 'mvn' -Denv=env.properties. 
 - the flag '-Dcucumber.filter.tags=' with the Name Tag Runner '@regressivo'
 - generate the reports with the 'cluecumber-report:reporting'
-
+    
 
 `mvn test -Denv=dev.properties -Dcucumber.filter.tags="@regressivo" cluecumber-report:reporting`
 
