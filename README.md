@@ -1,4 +1,4 @@
-# Web Automation Selenium WebDriver, Cucumber, and JUnit with Java - Framework
+# Web Automation Selenium WebDriver, Cucumber, and JUnit5 with Java - Framework
 
 Sample project to demonstrate Web Automation tests written with [Selenium WebDriver](https://www.selenium.dev/documentation/webdriver/getting_started/install_library/), [Cucumber](https://cucumber.io/docs/installation/java/#maven), and [JUnit](https://cucumber.io/docs/installation/java/#junit-5-integration) in [Java](https://www.oracle.com/java/technologies/downloads/#java11) running on GitHub Actions.
 
@@ -18,14 +18,16 @@ To clone and run this project, you will need:
 ## Project Structure: Page Object Model and Single Responsibility Principle Pattern:
 
 
-| Package  | Responsibility                                                                  |
-|----------|---------------------------------------------------------------------------------|
-| core     | responsible for managing the Webdriver config                                   |
-| maps     | responsible for identifying web elements                                        |
-| pages    | responsible for page actions (navigation, sendKeys, getText, clicks, selects.)  |
-| steps    | responsible for snippets steps generated from feature file                      |
-| runner   | responsible for executing the test suite                                        |
-| features | responsible for Scenarios written in BDD/Gherkin                                |
+| Package   | Responsibility                                                                       |
+|-----------|--------------------------------------------------------------------------------------|
+| core      | responsible for managing the Webdriver config                                        |
+| maps      | responsible for identifying web elements                                             |
+| pages     | responsible for page actions (navigation, sendKeys, getText, clicks, selects.)       |
+| steps     | responsible for snippets steps generated from feature file                           |
+| utils     | responsible for handle with multiple environments from config file                   |
+| runner    | responsible for executing the test suite                                             |
+| features  | responsible for Scenarios written in BDD/Gherkin                                     |
+| resources | responsible for handle with multiple environment and parallel execution config files |
 
   
 ## Installation
